@@ -2,8 +2,8 @@
 const urlId = document.getElementById("url");
 const formInput = document.getElementById("form");
 
-formInput.addEventListener('submit',(event)=>{
-	event.preventDefault();
+formInput.addEventListener('submit',(e)=>{
+	e.preventDefault();
 	const name = document.getElementById("name").value;
 	const year = document.getElementById("year").value;
 
@@ -12,5 +12,5 @@ formInput.addEventListener('submit',(event)=>{
 		queryString += `&year=${year}`;
 	}
 	const updateUrl = `https://localhost:8080/${queryString}`;
-	urlId.textContent = updateUrl;
+	urlId.innerText = updateUrl;
 });
