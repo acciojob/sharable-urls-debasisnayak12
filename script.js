@@ -4,13 +4,13 @@ let formInput = document.getElementById("form");
 
 formInput.addEventListener('submit',(event)=>{
 	event.preventDefault();
-	const name = document.getElementById("name").value;
-	const year = document.getElementById("year").value;
+	let name = document.getElementById("name").value;
+	let year = document.getElementById("year").value;
 
-	const queryString = `&name=${name}`;
+	let queryString = `&name=${name}`;
 	if(year){
 		queryString += `&year=${year}`;
 	}
-	const updateUrl = `https://localhost:8080/${queryString}`;
+	let updateUrl = `https://localhost:8080/${queryString}`;
 	urlId.textContent = updateUrl;
 });
