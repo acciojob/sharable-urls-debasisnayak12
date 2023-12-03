@@ -1,16 +1,10 @@
 // your code here
-const urlId = document.getElementById("url");
-const formInput = document.getElementById("form");
+ document.getElementById('myForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const year = document.getElementById('year').value;
 
-formInput.addEventListener('submit',(e)=>{
-	e.preventDefault();
-	const name = document.getElementById("name").value;
-	const year = document.getElementById("year").value;
+      const queryString = `?name=${encodeURIComponent(name)}&year=${encodeURIComponent(year)}`;
 
-	let queryString = `&name=${name}`;
-	if(year){
-		queryString += `&year=${year}`;
-	}
-	const updateUrl = `https://localhost:8080/${queryString}`;
-	urlId.innerText = updateUrl;
-});
+      document.getElementById('url').innerText = `https://localhost:8080/${queryString}`;
+    });
